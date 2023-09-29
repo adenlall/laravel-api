@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class QuizzesSeeder extends Seeder
 {
@@ -13,8 +14,6 @@ class QuizzesSeeder extends Seeder
     public function run(): void
     {
         
-        <?php 
-
  $services = [
          [
             "title" => "Football Legends", 
@@ -1561,7 +1560,7 @@ class QuizzesSeeder extends Seeder
  
         
         for ($i = 0; $i < count($services); $i++) {
-				        DB::table('analitycs')->insert([
+				        DB::table('quizzes')->insert([
 				            'value' => json_encode($services[$i]),
 				        ]);
 				}

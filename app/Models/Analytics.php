@@ -9,7 +9,7 @@ class Analytics extends Model
 {
     use HasFactory;
 		
-    protected $table = "analitycs";
+    protected $table = "analytics";
     protected $primaryKey = 'key';
     protected $fillable = ['key', 'value'];
 
