@@ -20,6 +20,18 @@ class VisitsController extends Controller
 				$data  = json_decode($query->value, true);
 				return response()->json($data['times'], 201);
 		}
+		public function get_quizzes()
+		{
+				$query = Analytics::find('quizzes');
+				$data  = json_decode($query->value, true);
+				return response()->json($data, 201);
+		}
+		public function get_goalorassist()
+		{
+				$query = Analytics::find('goal_or_assists');
+				$data  = json_decode($query->value, true);
+				return response()->json($data, 201);
+		}
 		public function reset()
 		{
 				$query = Analytics::find('visits');
