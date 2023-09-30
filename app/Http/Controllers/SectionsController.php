@@ -36,17 +36,17 @@ class SectionsController extends Controller
 				$ana  = Analytics::find('goal_or_assists');
 				$aval = json_decode($ana->value, true);
 				if (isset($aval[$index])) {
-						if ($request->answer===0||$request->answer===1) {
+						if ($request->answer==0||$request->answer==1) {
 								$aval[$index][$request->answer]++;
 						}else{
-							return response()->json([], 404);
+							return response()->json([], 403);
 						}
 				}else{
-					$aval[$index] = array(0=>0, 1=>1);
-					if ($request->answer===0||$request->answer===1) {
+					$aval[$index] = array(0=>0, 1=>0);
+					if ($request->answer==0||$request->answer==1) {
 							$aval[$index][$request->answer]++;
 					}else{
-						return response()->json([], 404);
+						return response()->json([], 402);
 					}
 				}
 				$ana->value = json_encode($aval);
@@ -130,7 +130,6 @@ class SectionsController extends Controller
 					if (!$data) {
 					    return response()->json([], 400);
 					}
-					dd($data);
 					return response()->json($data, 201);
 				}
 				return response()->json([], 404);

@@ -83,7 +83,6 @@ class Visit
 								$data["routes"][$request->route] = 1;
 							}
 					}
-					
 					$query->value = json_encode($data);
 					$query->save();
 					
